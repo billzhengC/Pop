@@ -72,7 +72,7 @@ window.addEventListener('load', function() {
 			var danmaku = {
 				"mode": 1,
 				"text": val,
-				"stime": 1000,
+				"stime": 60,
 				"size": 30,
 				"color": 0xff0000
 			};
@@ -88,7 +88,7 @@ window.addEventListener('load', function() {
 				var playTime = Date.now() - startTime; // 用起始时间和现在时间的差模拟播放
 				CM.time(playTime); // 通报播放时间
 				$('txPlayPos').textContent = playTime; // 显示播放时间
-			}, 100); // 模拟播放器每 100ms 通报播放时间
+			}, 20); // 模拟播放器每 100ms 通报播放时间
 		})
 	})
 
