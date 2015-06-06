@@ -33,8 +33,13 @@
         "https://*/*"
       ],
       "js": [
-        "scripts/contentscript.js"
+        "scripts/contentscript.js",
+        "scripts/jquery-2.1.3.min.js",
+        "scripts/CommentCoreLibrary.js"
       ],
+      "css": ["styles/style.css",
+        "styles/my-page-styles.css",
+        "styles/main.css"],
       "run_at": "document_end",
       "all_frames": false
     }
