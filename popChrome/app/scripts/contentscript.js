@@ -1,13 +1,8 @@
 function $j(element) {
     // 获取 DOM 对象的短写，如果你在用 jQuery 也可以采用类似的方法
     return document.getElementById(element);
-};
+}
 
-//window.addEventListener('load', function() {
-//
-//
-//
-//});
 
 
 
@@ -15,32 +10,48 @@ $(document).ready(function() {
     $("embed").wrap("<div id='my-comment-stage' class='container'></div>");
     $("#my-comment-stage").wrap("<div id='my-player' class='abp' style='width:480px; height:400px; background:#000;'></div>");
     // 在窗体载入完毕后再绑定
-    var CM = new CommentManager($j('my-comment-stage'));
+
+    chrome.runtime.onMessage.addListener(
+        function(request, sender, sendResponse) {
+            document.write("BB");
+        });
+
+    var CM = new CommentManager($j("my-comment-stage"));
     CM.init();
 
 
-    var danmakuTimeline = [{
+    var dan1 = [{
         "mode": 1,
-        "text": "",
+        "text": "HHHHHH1111",
         "stime": 0,
         "size": 25,
         "color": 0xffffff
     }];
-    CM.load(danmakuTimeline);
+    CM.load(dan1);
 
     //val = $("#inputbox").val()
 
-    var danmaku = {
+    var dan2 = {
         "mode": 1,
         //"text": val,
-        "text":"HelloWorld",
+        "text":"HHHHHH2222",
         "stime": 1000,
         "size": 30,
         "color": 0xff0000
     };
-    CM.send(danmaku);
+    CM.insert(dan2);
+    var dan3 = {
+        "mode": 1,
+        //"text": val,
+        "text":"HHHHHH3333",
+        "stime": 1500,
+        "size": 30,
+        "color": 0xff0000
+    };
+    CM.insert(dan3);
     //CM.insert(danmaku);
     CM.start();
+    CM.time(2000);
     //CM.time(1000); // 通报播放时间
 
 
@@ -55,6 +66,3 @@ $(document).ready(function() {
     //    $('txPlayPos').textContent = playTime; // 显示播放时间
     //}, 100); // 模拟播放器每 100ms 通报播放时间
 });
-
-// 开放 CM 对象到全局这样就可以在 console 终端里操控
-//window.CM = CM;
