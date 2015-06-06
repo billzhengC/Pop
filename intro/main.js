@@ -17,7 +17,7 @@ window.addEventListener('load', function() {
 		e.preventDefault(); // 抑制默认操作
 		var danmakuTimeline = [{
 			"mode": 1,
-			"text": "“,
+			"text": "",
 			"stime": 0,
 			"size": 25,
 			"color": 0xffffff
@@ -60,7 +60,7 @@ window.addEventListener('load', function() {
 			e.preventDefault(); // 抑制默认操作
 			var danmakuTimeline = [{
 				"mode": 1,
-				"text": "Hello World",
+				"text": "",
 				"stime": 0,
 				"size": 25,
 				"color": 0xffffff
