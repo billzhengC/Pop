@@ -1,19 +1,19 @@
-var $j = jQuery.noConflict(); //此处$j就代表JQuery 
+//var $j = jQuery.noConflict(); //此处$j就代表JQuery 
 //$j('#msg').hide();
-function $(element) {
+function $j(element) {
 	// 获取 DOM 对象的短写，如果你在用 jQuery 也可以采用类似的方法
 	return document.getElementById(element);
 };
 
 window.addEventListener('load', function() {
 	// 在窗体载入完毕后再绑定
-	var CM = new CommentManager($('my-comment-stage'));
+	var CM = new CommentManager($j('my-comment-stage'));
 	CM.init();
 
 	// 先启用弹幕播放（之后可以停止）
 	CM.start();
 	// 绑定按钮们
-	$('btnLoadTimeline').addEventListener('click', function(e) {
+	$j('btnLoadTimeline').addEventListener('click', function(e) {
 		e.preventDefault(); // 抑制默认操作
 		var danmakuTimeline = [{
 			"mode": 1,
@@ -25,7 +25,7 @@ window.addEventListener('load', function() {
 		CM.load(danmakuTimeline);
 	});
 
-	$('btnInsertTimeline').addEventListener('click', function(e) {
+	$j('btnInsertTimeline').addEventListener('click', function(e) {
 		e.preventDefault(); // 抑制默认操作
 		var danmaku = {
 			"mode": 1,
@@ -39,7 +39,7 @@ window.addEventListener('load', function() {
 
 	var startTime = 0,
 		iVal = -1;
-	$('btnTimer').addEventListener('click', function(e) {
+	$j('btnTimer').addEventListener('click', function(e) {
 		e.preventDefault(); // 抑制默认操作
 		startTime = Date.now(); // 设定起始时间
 		if (iVal >= 0) {
@@ -49,14 +49,18 @@ window.addEventListener('load', function() {
 		iVal = setInterval(function() {
 			var playTime = Date.now() - startTime; // 用起始时间和现在时间的差模拟播放
 			CM.time(playTime); // 通报播放时间
-			$('txPlayPos').textContent = playTime; // 显示播放时间
+			$j('txPlayPos').textContent = playTime; // 显示播放时间
 		}, 100); // 模拟播放器每 100ms 通报播放时间
 	});
 
 
-	$j(document).ready(function() {
-		$j('#getContent').click(function(e) {
-			
+	$(document).ready(function() {
+
+		$('#getContent').click(function(e) {
+			$("cmt").bind("click", function(e) {
+				alert("赞")
+			})
+
 			e.preventDefault(); // 抑制默认操作
 			var danmakuTimeline = [{
 				"mode": 1,
@@ -66,18 +70,22 @@ window.addEventListener('load', function() {
 				"color": 0xffffff
 			}];
 			CM.load(danmakuTimeline);
-			
-			val = $j("#inputbox").val()
+
+			val = $("#inputbox").val()
 			e.preventDefault(); // 抑制默认操作
 			var danmaku = {
 				"mode": 1,
 				"text": val,
-				"stime": 1000,
+				"stime": 40,
 				"size": 30,
 				"color": 0xff0000
 			};
 			CM.insert(danmaku);
 
+			$("cmt").bind("click", function(e) {
+				alert("赞")
+			})
+			
 			e.preventDefault(); // 抑制默认操作
 			startTime = Date.now(); // 设定起始时间
 			if (iVal >= 0) {
@@ -87,8 +95,12 @@ window.addEventListener('load', function() {
 			iVal = setInterval(function() {
 				var playTime = Date.now() - startTime; // 用起始时间和现在时间的差模拟播放
 				CM.time(playTime); // 通报播放时间
-				$('txPlayPos').textContent = playTime; // 显示播放时间
-			}, 100); // 模拟播放器每 100ms 通报播放时间
+				$j('txPlayPos').textContent = playTime; // 显示播放时间
+			}, 20); // 模拟播放器每 100ms 通报播放时间
+			
+			$("cmt").bind("click", function(e) {
+				alert("赞")
+			})
 		})
 	})
 
