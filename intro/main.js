@@ -99,34 +99,43 @@ window.addEventListener('load', function() {
 				$j('txPlayPos').textContent = playTime; // 显示播放时间
 			}, 20); // 模拟播放器每 100ms 通报播放时间
 
-MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
-var i=0
-var observer = new MutationObserver(function(mutations, observer) {
-    // fired when a mutation occurs
-    console.log(12345);
-    if ($(".cmt").length=0){
-    $(".cmt").unbind()
-    }
-	$(".cmt").bind("click", function(e) {
+			MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+			var i = 0
+			var observer = new MutationObserver(function(mutations, observer) {
+				// fired when a mutation occurs
+				console.log(12345);
+				i += 1
+				if ($(".cmt").length = 0) {}
+
+				$(".cmt").unbind()
+				$(".cmt").bind("click", function(e) {
+					$(this).animate({
+						opacity: 0.25,
+						left: '+=50',
+						height: 'toggle'
+					}, 500, function() {
+						// Animation complete.
+					});
 					console.log("zan");
+					console.log($(this).text())
 				})
-});
+			});
 
-// define what element should be observed by the observer
-// and what types of mutations trigger the callback
-observer.observe(document.getElementById("my-comment-stage"), {
-//subtree: true,
-//attributes: true,
-  childList: true
-  //...
-});
+			// define what element should be observed by the observer
+			// and what types of mutations trigger the callback
+			observer.observe(document.getElementById("my-comment-stage"), {
+				//subtree: true,
+				//attributes: true,
+				childList: true
+					//...
+			});
 
-//			$("#my-comment-stage").on("change",function(e) {
-//				alert("赞");
-//				$("cmt").bind("click", function(e) {
-//					alert("赞");
-//				})
-//			})
+			//			$("#my-comment-stage").on("change",function(e) {
+			//				alert("赞");
+			//				$("cmt").bind("click", function(e) {
+			//					alert("赞");
+			//				})
+			//			})
 		})
 	})
 
