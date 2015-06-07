@@ -10,6 +10,7 @@ body {
 
 button {
     outline:none;
+    border:none;
     font-size: 12px;
     font-family: 'Calibri';
     color: #f5f5f5;
@@ -34,9 +35,11 @@ button#testRequest {
 
 #inputbox {
     outline: none;
+    /*border-style: none;*/
+    border:2px;
     background:transparent;
     margin-top: 22px;
-    font-size:18px;
+    font-size:22px;
     color: #ffe21f;
     font-weight: bold;
     font-family: 'Calibri';
