@@ -11,10 +11,16 @@ $(document).ready(function() {
     $("#my-comment-stage").wrap("<div id='my-player' class='abp' style='width:480px; height:400px; background:#000;'></div>");
     // 在窗体载入完毕后再绑定
 
-    chrome.runtime.onMessage.addListener(
-        function(request, sender, sendResponse) {
+
+    chrome.runtime.onConnect.addListener(function(port) {
+        port.onMessage.addListener(function(msg) {
             document.write("BB");
         });
+    });
+    //chrome.runtime.onMessage.addListener(
+    //    function(request, sender, sendResponse) {
+    //        document.write("BB");
+    //    });
 
     var CM = new CommentManager($j("my-comment-stage"));
     CM.init();

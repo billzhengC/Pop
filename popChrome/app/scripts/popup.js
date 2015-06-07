@@ -6,11 +6,20 @@ function setChildTextNode(elementId, text) {
 
 // Tests the roundtrip time of sendRequest().
 function sendDanmaku() {
-    var val = $("#inputbox").val();
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        document.write("Sent");
-        chrome.tabs.sendMessage(tabs[0].id, val);
-    });
+    val = $("#inputbox").val();
+    //chrome.runtime.sendMessage(tabs[0].id, val);
+
+
+    var port = chrome.tabs.connect(1);
+    port.postMessage(val);
+
+
+
+
+    //chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    //    document.write("Sent");
+    //    chrome.tabs.sendMessage(tabs[0].id, val);
+    //});
 }
 
 //// Tests the roundtrip time of Port.postMessage() after opening a channel.
@@ -34,6 +43,19 @@ function sendDanmaku() {
 //        });
 //    });
 //}
+$('.ui.dropdown').hide();
+$("#friends").on('click', function() {
+    if ($('.ui.dropdown').hasClass("active")) {
+        $('.ui.dropdown').dropdown('hide');
+        $('.ui.dropdown').hide();
+    }
+    else {
+        $('.ui.dropdown').show();
+        $('.ui.dropdown').dropdown();
+        $('.ui.dropdown').dropdown('show');
+    }
+
+});
 
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#testRequest').addEventListener(

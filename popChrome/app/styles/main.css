@@ -1,3 +1,46 @@
 body {
-  padding: 20px;
+    height: 175px;
+    width: 350px;
+    /*height: 200px;*/
+    /*width: 400px;*/
+
+    background-image: url("../images/popupBG.jpg");
+
+}
+
+button {
+    outline:none;
+    font-size: 12px;
+    font-family: 'Calibri';
+    color: #f5f5f5;
+    background: none repeat scroll 0 0 rgba(255,255,255,0.04);
+    background-position-x: 0px;
+    background-position-y: 0px;
+    background-size: initial;
+    background-origin: initial;
+    background-color: rgba(255, 255, 255, 0.0392157);
+}
+
+button.room {
+    height: 40px;
+    width: 60px;
+
+}
+
+button#testRequest {
+    height: 60px;
+    width: 45px;
+}
+
+#inputbox {
+    outline: none;
+    background:transparent;
+    margin-top: 22px;
+    font-size:18px;
+    color: #ffe21f;
+    font-weight: bold;
+    font-family: 'Calibri';
+    height: 60px;
+    width: 200px;
+
 }

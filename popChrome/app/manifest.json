@@ -34,10 +34,13 @@
       ],
       "js": [
         "scripts/jquery-2.1.3.min.js",
+        "scripts/semantic.min.js",
         "scripts/CommentCoreLibrary.js",
         "scripts/contentscript.js"
       ],
-      "css": ["styles/style.css",
+      "css": [
+        "styles/semantic.min.css",
+        "styles/style.css",
         "styles/my-page-styles.css",
         "styles/main.css"],
       "run_at": "document_end",
