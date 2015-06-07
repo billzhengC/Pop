@@ -119,6 +119,17 @@ window.addEventListener('load', function() {
 					console.log("zan");
 					console.log($(this).text())
 				})
+				$(".cmt").bind("dblclick", function(e) {
+					$(this).animate({
+						opacity: 1,
+						left: '+=50',
+						height: '0'
+					}, 250, function() {
+						// Animation complete.
+					});
+					console.log("zan");
+					console.log($(this).text())
+				})
 			});
 
 			// define what element should be observed by the observer
