@@ -7,11 +7,52 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css styles/main.css -->
-    <link href="styles/main.css" rel="stylesheet">
+  <script type="text/javascript" src="scripts/jquery-2.1.3.min.js"></script>
+      <script type="text/javascript" src="scripts/semantic.min.js"></script>
+  <!--<script type="text/javascript" src="../../scripts/CommentCoreLibrary.js"></script>-->
+      <link rel="stylesheet" href="styles/semantic.min.css" />
+      <!--<link rel="stylesheet" href="styles/style.css" />-->
+      <!--<link rel="stylesheet" href="styles/my-page-styles.css" />-->
+      <link rel="stylesheet" href="styles/main.css" />
+
+
+
     <!-- endbuild -->
   </head>
-  <body>
-    <h1>'Allo, 'Allo!</h1>
+  <body bgcolor="aqua">
+    <table>
+        <tr>
+            <td><button class="ui inverted red button">
+                <div class="room">
+                    大家弹
+                </div>
+            </button></td>
+            <td><button class="ui inverted red button">
+                <div class="room">
+                    老乡弹
+                </div>
+            </button></td>
+            <td><button id="friends" class="ui inverted red button">
+                <div class="room">
+                    好友弹
+                </div>
+            </button></td>
+            <td>
+                <div class="ui dropdown">
+                    <input type="hidden" name="friendlist">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Friends</div>
+                    <div class="menu">
+                        <div class="item" data-value="tom">Tom</div>
+                        <div class="item" data-value="edward">Edward</div>
+                        <div class="item" data-value="susan">Susan</div>
+                        <div class="item" data-value="bo">Bo</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
@@ -19,7 +60,19 @@
     <!-- endbuild -->
 
     <!-- build:js scripts/popup.js -->
+    <div id="send">
+        <input type="text" value="NYU Shanghai" id="inputbox" />
+        <button  class="ui button">
+            <div id="testRequest">Send</div>
+        </button>
+    </div>
+
+
+
+
+
     <script src="scripts/popup.js"></script>
     <!-- endbuild -->
   </body>
+
 </html>
